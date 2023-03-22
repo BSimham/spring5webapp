@@ -1,0 +1,33 @@
+<!Doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8"/>
+	<title>Spring Framework Guru Bhaaath</title>
+</head>
+<body>
+<h1>Email List</h1>
+<table>
+<tr>
+	<th>ID</th>
+	<th>BODY</th>
+	<th>CLOSING</th>
+	<th>CUST_EMAIL</th>
+	<th>CUST_NAME</th>
+	<th>INTROPURPOSE</th>
+	<th>SUBJECT</th>
+</tr>
+
+<tr th:each="email:${emails}">
+	<td th:text="${email.id}">123</td>
+	<td th:text="${email.body}">Legends</td>
+	<td th:text="${email.closing}"></td>
+	<td th:text="${email.cust_email}"></td>
+	<td th:text="${email.cust_name}"></td>
+	<td th:text="${email.intropurpose}"></td>
+	<td th:text="${email.subject}"></td>
+	<td th:text="${email.flag}"></td>
+</tr>
+
+</table>
+</body>
+</html>
