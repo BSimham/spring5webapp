@@ -13,7 +13,6 @@ import guru.springframework.spring5webapp.domain.Email;
 import guru.springframework.spring5webapp.repositories.EmailRepository;
 
 
-
 @Component
 public class EmailMessageReader implements ItemReader<List<Email>> {
     
@@ -25,9 +24,9 @@ public class EmailMessageReader implements ItemReader<List<Email>> {
 
     @Override
     public List<Email> read() throws Exception {
-        Pageable pageable = PageRequest.of(currentPage++, pageSize);
-        Page<Email> page = emailRepository.findAll(pageable);
-        System.out.println("in Reader"+currentPage+"  "+pageSize);
+        Pageable pageable = PageRequest.of(currentPage, pageSize);
+        Page<Email> page = emailRepository.findAllFalse(pageable);
+        System.out.println("in Reader"+currentPage+"  "+pageSize+page.getContent());
         return page.hasContent() ? page.getContent() : null;
     }
     
